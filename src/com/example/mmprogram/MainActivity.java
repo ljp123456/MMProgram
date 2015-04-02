@@ -40,8 +40,6 @@ public class MainActivity extends Activity {
 			R.drawable.link,R.drawable.me};
 	//存放于图片相对应的标题
 	private String[] mTexts = {"发现","消息","联系人","我"};
-	//设置标志
-	private String[] tags = {"A","B","C","D"};
 	//存放activity
 	private Class[] activitys = {
 			FindActivity.class,MessageActivity.class,
@@ -70,9 +68,9 @@ public class MainActivity extends Activity {
 		manager.dispatchCreate(savedInstanceState);
 		
 		Intent intent1 = null;
-		for(int i=0;i<tags.length;i++){
+		for(int i=0;i<mTexts.length;i++){
 			intent1 = new Intent(context, activitys[i]);
-			listViews.add(getView(tags[i], intent1));
+			listViews.add(getView(mTexts[i], intent1));
 		}
 		th.setup();
 		th.setup(manager);
@@ -82,8 +80,6 @@ public class MainActivity extends Activity {
 		TabSpec tabSpec = null;
 		for(int i=0;i<imageId.length;i++){
 			tabSpec = th.newTabSpec(mTexts[i]);
-			/*tabSpec.setIndicator(
-					creatTabIndicator(th, imageId[i])).setContent(intent);*/
 			tabSpec.setIndicator(getTabItemView(i)).setContent(intent);
 			th.addTab(tabSpec);
 		}
@@ -114,6 +110,8 @@ public class MainActivity extends Activity {
 				for(int i=0;i<mTexts.length;i++){
 					if(mTexts[i].equals(tabId)){
 						pager.setCurrentItem(i);
+						TextView id = (TextView) findViewById(R.id.tv);
+						id.setText(mTexts[i]);
 					}
 				}
 			}

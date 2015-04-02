@@ -39,29 +39,33 @@ public final class R {
         public static final int username=0x7f02000f;
     }
     public static final class id {
-        public static final int action_settings=0x7f080016;
+        public static final int action_settings=0x7f08001a;
         public static final int btnLogin=0x7f080005;
         public static final int btnRegister=0x7f080006;
         public static final int etPwd=0x7f080004;
-        public static final int etRNickName=0x7f08000e;
-        public static final int etRPwd=0x7f080010;
-        public static final int etRRePwd=0x7f080012;
-        public static final int etRUserName=0x7f08000c;
+        public static final int etRNickName=0x7f08000f;
+        public static final int etRPwd=0x7f080011;
+        public static final int etRRePwd=0x7f080013;
+        public static final int etRUserName=0x7f08000d;
         public static final int etUserName=0x7f080002;
-        public static final int ibCream=0x7f08000a;
-        public static final int imageview=0x7f080013;
+        public static final int ibCream=0x7f08000b;
+        public static final int imageview=0x7f080017;
+        public static final int rbSexF=0x7f080016;
+        public static final int rbSexM=0x7f080015;
         public static final int tabhost=0x7f080007;
-        public static final int tabico=0x7f080015;
-        public static final int textview=0x7f080014;
+        public static final int tabico=0x7f080019;
+        public static final int textview=0x7f080018;
+        public static final int tv=0x7f080008;
         public static final int tvLogin=0x7f080000;
         public static final int tvPwd=0x7f080003;
-        public static final int tvRNickName=0x7f08000d;
-        public static final int tvRPwd=0x7f08000f;
-        public static final int tvRRePwd=0x7f080011;
-        public static final int tvRUser=0x7f08000b;
-        public static final int tvRegitser=0x7f080009;
+        public static final int tvRNickName=0x7f08000e;
+        public static final int tvRPwd=0x7f080010;
+        public static final int tvRRePwd=0x7f080012;
+        public static final int tvRUser=0x7f08000c;
+        public static final int tvRegitser=0x7f08000a;
+        public static final int tvSex=0x7f080014;
         public static final int tvUserName=0x7f080001;
-        public static final int vPager=0x7f080008;
+        public static final int vPager=0x7f080009;
     }
     public static final class layout {
         public static final int activity_find=0x7f030000;

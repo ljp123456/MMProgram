@@ -1,15 +1,20 @@
 package com.example.mmprogram;
 
+import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.packet.Presence;
+
+import com.example.xmppmanager.XmppTool;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends Activity implements OnClickListener{
 
@@ -39,18 +44,37 @@ public class LoginActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		Intent intent = null;
 		switch (v.getId()) {
-		//»ñÈ¡µÇÂ¼ĞÅÏ¢²¢½øĞĞÅĞ¶Ï
+		//è·å–ç™»å½•ä¿¡æ¯å¹¶è¿›è¡Œåˆ¤æ–­
 		case R.id.btnLogin:
-			//µÃµ½µÇÂ¼Ãû
+			//å¾—åˆ°ç™»å½•å
 			String userName = mUserName.getText().toString();
-			//µÃµ½µÇÂ¼ÃÜÂë
+			//å¾—åˆ°ç™»å½•å¯†ç 
 			String pwd = mPwd.getText().toString();
-			//ÅĞ¶Ï³É¹¦Ôò
-			//Ìø×ªµ½Ö÷Ò³Ãæ
-			intent = new Intent(LoginActivity.this, MainActivity.class);
-			startActivity(intent);
+			//åˆ¤æ–­æˆåŠŸåˆ™
+			//è·³è½¬åˆ°ä¸»é¡µé¢
+			 final String account=mUserName.getText().toString();
+             final String password=mPwd.getText().toString();
+             if(account.equals("") || password.equals("")){
+                 Toast.makeText(LoginActivity.this, "è´¦å·æˆ–å¯†ç ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
+             }else{
+                 new Thread(){
+                	 public void run() {
+                		 try{
+                             XmppTool.getConnection().login(account,password);
+                              Presence presence = new Presence(Presence.Type.available);
+                              XmppTool.getConnection().sendPacket(presence);
+//                                  Toast.makeText(LoginActivity.this, "ç™»é™†æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
+                                  
+                                  startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                              }catch(XMPPException e) 
+                              {
+                                  XmppTool.closeConnection();
+                              }
+                	 };
+                 }.start();
+             }
 			break;
-		//×ªÈë×¢²áÒ³Ãæ
+		//è½¬å…¥æ³¨å†Œé¡µé¢
 		case R.id.btnRegister:
 			intent =  new Intent(LoginActivity.this,RegisterActivity.class);
 			startActivity(intent);

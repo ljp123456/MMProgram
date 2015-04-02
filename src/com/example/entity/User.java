@@ -4,25 +4,25 @@ import java.io.Serializable;
 
 public class User implements Serializable{
 
-	private int id;
 	private String userName;
+	private String nickName;
 	private String userPwd;
 	private String userSex;
 	//个性签名
 	private String userSign;
 	//头像
 	private int userImageId;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getUserName() {
 		return userName;
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 	public String getUserPwd() {
 		return userPwd;
@@ -48,24 +48,23 @@ public class User implements Serializable{
 	public void setUserImageId(int userImageId) {
 		this.userImageId = userImageId;
 	}
-	public User(int id, String userName, String userPwd, String userSex,
-			String userSign, int userImageId) {
+	public User(String userName, String nickName, String userPwd,
+			String userSex, String userSign, int userImageId) {
 		super();
-		this.id = id;
 		this.userName = userName;
+		this.nickName = nickName;
 		this.userPwd = userPwd;
 		this.userSex = userSex;
 		this.userSign = userSign;
 		this.userImageId = userImageId;
 	}
-	public User(String userName, String userPwd, String userSex,
-			String userSign, int userImageId) {
+	public User(String userName, String nickName, String userPwd,
+			String userSex) {
 		super();
 		this.userName = userName;
+		this.nickName = nickName;
 		this.userPwd = userPwd;
 		this.userSex = userSex;
-		this.userSign = userSign;
-		this.userImageId = userImageId;
 	}
 	public User() {
 		super();

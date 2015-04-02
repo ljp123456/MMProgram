@@ -126,6 +126,42 @@
                	   android:textColor="#fff"
                	   android:textStyle="italic"
                    />
+               
+               <TextView 
+                   android:id="@+id/tvSex"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   android:text="性别"
+                   android:textColor="#fff"
+               	   android:textSize="18sp"
+                   />
+               
+               <RadioGroup
+                   android:layout_marginTop="10dp"
+                   android:layout_gravity="fill_horizontal"
+                   android:layout_columnSpan="3"
+                   android:orientation="horizontal"
+                   >
+					<RadioButton 
+					    android:id="@+id/rbSexM"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:checked="true"
+					    android:text="男"
+					    android:textColor="#fff"
+                        android:textSize="18sp"
+					    />                   
+					<RadioButton 
+					    android:id="@+id/rbSexF"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="女"
+					    android:textColor="#fff"
+                        android:textSize="18sp"
+					    />                   
+               </RadioGroup>
+               
               <Button 
                   android:id="@+id/btnRegister"
                	  android:layout_marginTop="10dp"
